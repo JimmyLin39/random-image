@@ -44,7 +44,7 @@ const mutations = {
     }
   },
 
-  [DELETE_INVENTORY](state, imageId) {
+  [DELETE_SAVED_IMAGES](state, imageId) {
     state.all = state.all.filter(p => p.id !== imageId);
   }
 };

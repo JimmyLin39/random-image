@@ -10,7 +10,8 @@ import {
 export function fetchImages({ commit }) {
   return ImageService.retrieveImages()
     .then(response => {
-      console.log('responseURL:', response.request.responseURL);
+      // console.log('responseURL:', response.request.responseURL);
+      // redirected url is stored in responseURL
       commit(FETCH_IMAGES, response.request.responseURL);
     })
     .catch(error => {

@@ -1,3 +1,4 @@
+import ImageService from '../../../services/ImageService';
 
 import {
   FETCH_IMAGES,
@@ -5,3 +6,14 @@ import {
   UPDATE_SAVED_IMAGES,
   DELETE_SAVED_IMAGES,
 } from './mutation-types';
+
+export function fetchImages({ commit }) {
+  return ImageService.retrieveImages()
+    .then(response => {
+      console.log('responseURL:', response.request.responseURL);
+      commit(FETCH_IMAGES, response.request.responseURL);
+    })
+    .catch(error => {
+      console.log(error);
+    });
+}

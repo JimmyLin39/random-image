@@ -25,9 +25,15 @@ const mutations = {
   //   }
   // },
 
-  [FETCH_IMAGES](state, images) {
-    // assign the images that we got from our FETCH_IMAGES event to state.all
-    state.all = images;
+  [FETCH_IMAGES](state, image) {
+    // assign the images that we got from our FETCH_IMAGES event to state.images
+    // console.log('images in mutaion', image);
+    // console.log('image id', image.split('=')[1]);
+    state.images.push({
+      id: image.split('=')[1],
+      url: image
+    });
+    console.log('state images', state.images);
   },
 
   // [CREATE_INVENTORY](state, inventory) {

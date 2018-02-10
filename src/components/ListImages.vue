@@ -1,11 +1,20 @@
 <template>
   <div id="app">
-    <button class="ui button" v-on:click.prevent.stop="onFetch()">Fetch Images</button>
     <div class="ui three column grid">
       <div class="column" v-for="image in images">
         <div class="ui segment">
           <img v-bind:src="image.url">
-          <p>Like</p>
+            <div class="ui red button" v-if="image.save">
+              <i class="heart icon"></i> Saved
+            </div>
+            <div class="ui red basic button" v-else @click.prevent.stop="saveImage(image)">
+              <i class="empty heart icon"></i> Save
+            </div>
+        </div>
+      </div>
+      <div class="ui two column centered grid">
+        <div class="column">
+          <button class="ui orange image button" @click.prevent.stop="onFetch()">More Images</button>
         </div>
       </div>
     </div>
@@ -17,10 +26,7 @@ import { mapGetters, mapActions } from 'vuex'
 
 export default {
   created () {
-    const numOfImages = 9;
-    for (let i = 0; i < numOfImages; i++) {
-      this.$store.dispatch('fetchImages');
-    }
+    this.onFetch();
   },
   computed: {
     ...mapGetters({
@@ -28,6 +34,10 @@ export default {
     })
   },
   methods:{
+    ...mapActions([
+      'saveImage',
+    ]),
+    // Fetch number of images from random image api
     onFetch () {
       const numOfImages = 9;
       for (let i = 0; i < numOfImages; i++) {
@@ -42,7 +52,7 @@ export default {
   #app {
     margin: 2% 5%;
   }
-  .segment{
+  .segment {
     width: 330px;
     height: 360px;
   }

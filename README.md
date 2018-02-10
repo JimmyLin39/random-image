@@ -1,6 +1,6 @@
-# vuejs-random-image
+# random-image
 
-> A Vue.js project
+> A Vue.js project with semantic ui
 
 ## Build Setup
 

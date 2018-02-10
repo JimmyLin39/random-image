@@ -2,25 +2,10 @@
   <div id="app">
     <button class="ui button" v-on:click.prevent.stop="onFetch()">Fetch Images</button>
     <div class="ui three column grid">
-      <div class="column">
+      <div class="column" v-for="image in images">
         <div class="ui segment">
-          <img src="https://picsum.photos/300/?random">
+          <img v-bind:src="image.url">
           <p>Like</p>
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <img src="https://picsum.photos/300/?random">
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <img src="https://picsum.photos/300/?random">
-        </div>
-      </div>
-      <div class="column">
-        <div class="ui segment">
-          <img src="https://picsum.photos/300/?random">
         </div>
       </div>
     </div>
@@ -31,20 +16,23 @@
 import { mapGetters, mapActions } from 'vuex'
 
 export default {
-  // created () {
-  //   this.$store.dispatch('fetchCart');
-  // },
-  // computed: {
-  //   total () {
-  //    return this.inventories.reduce((sum, p) => sum + (p.quantity * p.price), 0)
-  //   },
-  //   ...mapGetters({
-  //     inventories: 'getCartItems'
-  //   })
-  // },
+  created () {
+    const numOfImages = 9;
+    for (let i = 0; i < numOfImages; i++) {
+      this.$store.dispatch('fetchImages');
+    }
+  },
+  computed: {
+    ...mapGetters({
+      images: 'getImages'
+    })
+  },
   methods:{
     onFetch () {
-      this.$store.dispatch('fetchImages');
+      const numOfImages = 9;
+      for (let i = 0; i < numOfImages; i++) {
+        this.$store.dispatch('fetchImages');
+      }
     }
   }
 }

@@ -4,7 +4,7 @@ import * as getters from './getters';
 import {
   FETCH_IMAGES,
   SAVE_IMAGE,
-  DELETE_SAVED_IMAGES,
+  DELETE_SAVED_IMAGE,
 } from './mutation-types';
 
 // initial state
@@ -33,8 +33,13 @@ const mutations = {
     }
   },
 
-  [DELETE_SAVED_IMAGES](state, imageId) {
-    state.all = state.all.filter(p => p.id !== imageId);
+  [DELETE_SAVED_IMAGE](state, image) {
+    const index = state.images.findIndex(p => p.id === image.id);
+    if (index !== -1) {
+      // We need to replace the array entirely so that vue can recognize
+      // the change and re-render entirely.
+      state.images.splice(index, 1, {...image, save: false});
+    }
   }
 };
 

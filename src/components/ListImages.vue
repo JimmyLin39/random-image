@@ -4,7 +4,7 @@
       <div class="column" v-for="image in images">
         <div class="ui segment">
           <img v-bind:src="image.url">
-            <div class="ui red button" v-if="image.save">
+            <div class="ui red button" v-if="image.save" @click.prevent.stop="deleteSavedImage(image)">
               <i class="heart icon"></i> Saved
             </div>
             <div class="ui red basic button" v-else @click.prevent.stop="saveImage(image)">
@@ -36,6 +36,7 @@ export default {
   methods:{
     ...mapActions([
       'saveImage',
+      'deleteSavedImage'
     ]),
     // Fetch number of images from random image api
     onFetch () {

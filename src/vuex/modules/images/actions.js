@@ -3,7 +3,7 @@ import ImageService from '../../../services/ImageService';
 import {
   FETCH_IMAGES,
   SAVE_IMAGE,
-  DELETE_SAVED_IMAGES,
+  DELETE_SAVED_IMAGE,
 } from './mutation-types';
 
 export function fetchImages({ commit }) {
@@ -19,4 +19,8 @@ export function fetchImages({ commit }) {
 
 export function saveImage({ commit }, image) {
   commit(SAVE_IMAGE, image);
+}
+
+export function deleteSavedImage({ commit }, image) {
+  commit(DELETE_SAVED_IMAGE, image);
 }

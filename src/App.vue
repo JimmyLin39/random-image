@@ -1,20 +1,26 @@
 <template>
   <div id="app">
-    <div class="ui container">
-      <h1>Hello Semantic UI!</h1>
-      <div class="ui segment">
-       <p>
-          Lorem ipsum dolor sit, amet consectetur adipisicing elit. Natus voluptatibus aliquid tempore, delectus quaerat doloribus inventore rem perspiciatis debitis corporis porro molestias aspernatur itaque dolorum quibusdam. Dolore molestias laborum maiores?
-       </p>
-       <button class="ui button">
-         Standard button
-       </button>
-       <button class="ui primary button">
-         Primary button
-       </button>
-       <button class="ui secondary button">
-         Secondary button
-       </button>
+    <div class="ui three column grid">
+      <div class="column">
+        <div class="ui segment">
+          <img src="https://picsum.photos/300/?random">
+          <p>Like</p>
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <img src="https://picsum.photos/300/?random">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <img src="https://picsum.photos/300/?random">
+        </div>
+      </div>
+      <div class="column">
+        <div class="ui segment">
+          <img src="https://picsum.photos/300/?random">
+        </div>
       </div>
     </div>
   </div>
@@ -22,7 +28,11 @@
 
 <style lang="less">
   #app {
-    margin-top: 1.5rem;
+    margin: 2% 5%;
+  }
+  .segment{
+    width: 330px;
+    height: 360px;
   }
 </style>
 

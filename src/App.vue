@@ -1,5 +1,8 @@
 <template>
   <div>
+    <header>
+      <navbar></navbar>
+    </header>
     <main>
       <router-view></router-view>
     </main>
@@ -7,12 +10,12 @@
 </template>
 
 <script>
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 
-// export default {
-//   components: {
-//     Navbar,
-//   },
-// }
+export default {
+  components: {
+    Navbar,
+  },
+}
 </script>
 

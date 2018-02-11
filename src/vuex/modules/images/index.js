@@ -37,8 +37,6 @@ const mutations = {
   [DELETE_SAVED_IMAGE](state, image) {
     const index = state.images.findIndex(p => p.id === image.id);
     if (index !== -1) {
-      // We need to replace the array entirely so that vue can recognize
-      // the change and re-render entirely.
       state.images.splice(index, 1, {...image, save: false});
       state.savedImages = state.savedImages.filter(p => p.id !== image.id);
     }

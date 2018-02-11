@@ -1,5 +1,5 @@
 <template>
-  <div id="app">
+  <div class="savedImages">
     <div class="ui three column grid" v-if="savedImages">
       <div class="column" v-for="image in savedImages">
         <div class="ui segment">
@@ -33,12 +33,8 @@ export default {
 </script>
 
 <style lang="less">
-  #app {
+  .savedImages {
     margin: 2% 5%;
-  }
-  .segment {
-    width: 330px;
-    height: 360px;
   }
 </style>
 

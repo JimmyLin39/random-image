@@ -30,6 +30,7 @@ const mutations = {
       // We need to replace the array entirely so that vue can recognize
       // the change and re-render entirely.
       state.images.splice(index, 1, {...image, save: true});
+      state.savedImages.push({...image, save: true});
     }
   },
 
@@ -39,6 +40,7 @@ const mutations = {
       // We need to replace the array entirely so that vue can recognize
       // the change and re-render entirely.
       state.images.splice(index, 1, {...image, save: false});
+      state.savedImages = state.savedImages.filter(p => p.id !== image.id);
     }
   }
 };
